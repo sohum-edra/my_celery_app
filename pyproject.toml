@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "my-celery-app"
+version = "0.1.0"
+description = ""
+authors = ["Sohum Khot <sohum@edralabs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+celery = "^5.4.0"
+redis = "^5.2.1"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
