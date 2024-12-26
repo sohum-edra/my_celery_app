@@ -6,8 +6,8 @@ import os
 load_dotenv()
 
 # Get the Redis broker URL and backend from environment variables
-REDIS_BROKER_URL = os.getenv("REDIS_BROKER_URL", "redis://localhost:6379/0")
-REDIS_BACKEND = os.getenv("REDIS_BACKEND", "redis://localhost:6379/0")
+REDIS_BROKER_URL = os.getenv("REDIS_BROKER_URL")
+REDIS_BACKEND = os.getenv("REDIS_BACKEND")
 
 # Initialize the Celery app
 celery_app = Celery(
