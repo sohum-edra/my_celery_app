@@ -23,6 +23,12 @@ celery_app.conf.update(
     result_serializer="json",
     timezone="UTC",
     enable_utc=True,
+    broker_use_ssl={
+        'ssl_cert_reqs': 'required',  # Ensure certificates are validated
+    },
+    redis_backend_use_ssl={
+        'ssl_cert_reqs': 'required',  # Ensure certificates are validated
+    },
 )
 
 # Import the tasks to ensure they are registered
