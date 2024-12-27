@@ -7,6 +7,15 @@ echo "Starting Celery worker with PM2..."
 
 cd "$APP_DIR" || exit
 
+# Check if the process exists, stop and delete it
+if pm2 describe "$PROCESS_NAME" > /dev/null 2>&1; then
+    echo "Existing process ($PROCESS_NAME) found. Stopping and deleting it..."
+    pm2 stop "$PROCESS_NAME"
+    pm2 delete "$PROCESS_NAME"
+else
+    echo "No existing process ($PROCESS_NAME) found."
+fi
+
 # Export environment variables from .env
 export $(grep -v '^#' .env | xargs)
 

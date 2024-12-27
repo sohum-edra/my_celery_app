@@ -3,7 +3,7 @@
 # Define the PM2 process name
 PROCESS_NAME=my-celery-app
 
-# Check if the process is running
+# Check if the process exists
 if pm2 describe "$PROCESS_NAME" > /dev/null 2>&1; then
     echo "Stopping Celery worker ($PROCESS_NAME) gracefully..."
     pm2 stop "$PROCESS_NAME"
@@ -16,8 +16,9 @@ if pm2 describe "$PROCESS_NAME" > /dev/null 2>&1; then
         TIMEOUT=$((TIMEOUT - 5))
     done
 
+    # Check again and force delete if necessary
     if pm2 describe "$PROCESS_NAME" > /dev/null 2>&1; then
-        echo "Celery did not stop within timeout. Forcing stop..."
+        echo "Celery did not stop within timeout. Forcing delete..."
         pm2 delete "$PROCESS_NAME"
     else
         echo "Celery stopped successfully."
