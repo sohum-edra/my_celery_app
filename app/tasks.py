@@ -12,7 +12,7 @@ RANDOM_VALUE=os.getenv("RANDOM_VALUE")
 @celery_app.task
 def add(x, y):
     """A simple task to add two numbers."""
-    logging.info(f"CALLED BY {RANDOM_VALUE}: update456")
+    logging.info(f"CALLED BY {RANDOM_VALUE}: update 789")
     logging.info("Adding two numbers...")
     time.sleep(5)
     return x + y
