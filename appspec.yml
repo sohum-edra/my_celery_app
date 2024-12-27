@@ -15,9 +15,9 @@ permissions:
       - directory
 
 hooks:
-  BeforeInstall:
-    - location: scripts/stop_celery_pm2.sh
-      runas: ec2-user
+  # BeforeInstall:
+  #   - location: scripts/stop_celery_pm2.sh
+  #     runas: ec2-user
   AfterInstall:
     - location: scripts/setup.sh
       runas: ec2-user
