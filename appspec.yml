@@ -6,6 +6,8 @@ files:
 
 hooks:
   AfterInstall:
+    - location: scripts/permissions.sh
+      runas: root
     - location: scripts/setup.sh
       runas: ec2-user
     - location: scripts/start.sh
