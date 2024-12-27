@@ -15,6 +15,9 @@ permissions:
       - directory
 
 hooks:
+  BeforeInstall:
+    - location: scripts/stop_celery_pm2.sh
+      runas: root  # Run as root to have necessary permissions
   AfterInstall:
     - location: scripts/permissions.sh
       runas: root          # Changed from ec2-user to root
